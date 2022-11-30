@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %} Menu Mc {% endblock %}
+
+<h1>Hello Wrld!</h1>
+{% block content %}
+    <h1>What menu</h1>
+
+    <div class="menu">
+        <div class="menu_list">
+            <ul>
+                <li class="active"><a href="" >Все</li></a>
+                <li><a href="">Новинки</li></a>
+                <li><a href="{% url 'newBurgers' %}">Бургеры</li></a>
+                <li><a href="{% url 'newSnack' %}">Закуски и Соусы</li></a>
+                <li><a href="{% url 'newJuices' %}">Холодные напитки</li></a>
+                <li><a href="{% url 'drinkHot' %}">Горячие напитки</li></a>
+            </ul>
+        </div>
+        <div style="width: 80%; margin: 0 auto;" >         
+            {% for post in posts %}
+            <div class="blocksDiv">
+                <img src="{{ post.image }}" alt="" style="width: 200px; height: 150px; display: flex; margin: 0 auto;">
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.postDate }}</p>
+                <p>{{ post.content|truncatewords:5 }}</p>
+                <p>{{ post.source }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div style="width: 80%; margin: 0 auto;" >         
+            {% for sok in juices %}
+            <div class="blocksDiv">
+                <img src="{{ sok.imageJ }}" alt="" style="width: 200px; height: 150px; display: flex; margin: 0 auto;">
+                <h3>{{ sok.titleT }}</h3>
+                <p>{{ sok.postDateT }}</p>
+                <p>{{ sok.contentT|truncatewords:5 }}</p>
+                <p>{{ sok.sourceT }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div style="width: 80%; margin: 0 auto;" >         
+            {% for drink in drinks %}
+            <div class="blocksDiv">
+                <img src="{{ drink.imageH }}" alt="" style="width: 200px; height: 150px; display: flex; margin: 0 auto;">
+                <h3>{{ drink.nameDrink }}</h3>
+                <p>{{ drink.addDateHot }}</p>
+                <p>{{ drink.newIngredients|truncatewords:5 }}</p>
+                <p>{{ drink.priceHot }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div style="width: 80%; margin: 0 auto;" >         
+            {% for snack in snacks %}
+            <div class="blocksDiv">
+                <img src="{{ snack.imageS }}" alt="" style="width: 200px; height: 150px; display: flex; margin: 0 auto;">
+                <h3>{{ snack.nameSnack }}</h3>
+                <p>{{ snack.addDateSnack }}</p>
+                <p>{{ snack.newSnackIngredients|truncatewords:5 }}</p>
+                <p>{{ snack.priceSnack }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

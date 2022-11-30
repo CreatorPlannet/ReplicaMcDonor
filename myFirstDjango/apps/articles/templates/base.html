@@ -1,0 +1,81 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="{% static '../static/css/style.css' %}">
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a href="{% url 'homePage' %}">Main</a></li>
+            <li><a href="{% url 'menuPage' %}">Menu</a></li>
+            <li><a href="{% url 'pants' %}">Restaurants</a></li>
+            <li><a href="{% url 'cap' %}">Services</a></li>
+            <li><a href="{% url 'adminPanels' %}">Admin</a></li>
+        </ul>
+    </header>
+    {% block head %}
+
+    {% endblock %}
+     <!-- Dynamic -->
+    {% block content %}
+
+    {% endblock %}
+
+    <!-- <div class="left_block">
+        <ul>
+            <li><a href="{% url 't-shirt' %}">T-shirt</a></li>
+            <li><a href="{% url 'pants' %}">Pants</a></li>
+            <li><a href="{% url 'cap' %}">Cap</a></li>
+        </ul>
+    </div> -->
+
+    <div class="email_contact">
+        <div class=""></div>
+    </div>
+
+    <footer>
+        <div class="footer_wrap">
+            <div class="footer_link-block">
+                <div class="info">
+                    <h3>О нас</h3>
+                        <ul>
+                            <li>О компаний</li>
+                            <li>Сотрудничество</li>
+                            <li>Галерея</li>
+                        </ul>
+                    
+                </div>
+                <div class="info">
+                    <h3>Услуги</h3>
+                        <ul>
+                            <li>Наше качество</li>
+                            <li>Забота о природе</li>
+                            <li>Бесплатный WiFi</li>
+                        </ul>
+                    
+                </div>
+                <div class="info">
+                    <h3>Регионы</h3>
+                        <ul>
+                            <li>Астана</li>
+                            <li>Алматы</li>
+                            <li>Костанай</li>
+                        </ul>
+                        
+                </div>
+            </div>
+            <div class="footer_copyrigth">
+                <div class="logo">
+                    <img src="../static/img/Logo Clothes.png" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 

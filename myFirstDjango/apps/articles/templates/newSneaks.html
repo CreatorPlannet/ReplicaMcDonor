@@ -1,0 +1,30 @@
+{% extends 'menu.html' %}
+
+{% block title %} Контакты {% endblock %}
+
+{% block content %}
+<h1>Sneaks</h1>
+<div class="menu">
+    <div class="menu_list">
+        <ul>
+            <li><a href="{% url 'menuPage' %}">Все</li></a>
+            <li><a href="">Новинки</li></a>
+            <li><a href="{% url 'newBurgers' %}">Бургеры</li></a>
+            <li class="active2"><a href="{% url 'newSnack' %}">Закуски и Соусы</li></a>
+            <li><a href="{% url 'newJuices' %}">Холодные напитки</li></a>
+            <li><a href="{% url 'drinkHot' %}">Горячие напитки</li></a>
+        </ul>
+    </div>
+    <div style="width: 80%; margin: 0 auto;" >         
+        {% for snack in snacks %}
+        <div class="blocksDiv">
+            <img src="{{ snack.imageS }}" alt="" style="width: 200px; height: 150px; display: flex; margin: 0 auto;">
+            <h3>{{ snack.nameSnack }}</h3>
+            <p>{{ snack.addDateSnack }}</p>
+            <p>{{ snack.newSnackIngredients|truncatewords:5 }}</p>
+            <p>{{ snack.priceSnack }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

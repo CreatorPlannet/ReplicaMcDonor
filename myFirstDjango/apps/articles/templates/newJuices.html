@@ -1,0 +1,30 @@
+{% extends 'menu.html' %}
+
+{% block title %} Контакты {% endblock %}
+
+{% block content %}
+<h1>Juices</h1>
+<div class="menu">
+    <div class="menu_list">
+        <ul>
+            <li><a href="{% url 'menuPage' %}">Все</li></a>
+            <li><a href="">Новинки</li></a>
+            <li><a href="{% url 'newBurgers' %}">Бургеры</li></a>
+            <li><a href="{% url 'newSnack' %}">Закуски и Соусы</li></a>
+            <li class="active2"><a href="#">Холодные напитки</li></a>
+            <li><a href="{% url 'drinkHot' %}">Горячие напитки</li></a>
+        </ul>
+    </div>
+    <div style="width: 80%; margin: 0 auto;" >         
+        {% for sok in juices %}
+        <div class="blocksDiv">
+            <img src="{{ sok.imageJ }}" alt="" style="width: 200px; height: 150px; display: flex; margin: 0 auto;">
+            <h3>{{ sok.titleT }}</h3>
+            <p>{{ sok.postDateT }}</p>
+            <p>{{ sok.contentT|truncatewords:5 }}</p>
+            <p>{{ sok.sourceT }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
